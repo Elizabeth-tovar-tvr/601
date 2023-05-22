@@ -20,6 +20,7 @@
 			addChild (PISO_NEW);
 			addChild (PROTAGONISTA_NEW);
 			addChild (ANTAGONISTA_NEW);
+			addChild (BALA_NEW);
 			
 			FONDO_NEW.y=0;
 			FONDO_NEW.x=0;
@@ -33,7 +34,8 @@
 			ANTAGONISTA_NEW.y=325;
 			ANTAGONISTA_NEW.x=100;
 			
-			 
+			BALA_NEW.y=100;
+			BALA_NEW.x=200;
 			
 			
  		}
