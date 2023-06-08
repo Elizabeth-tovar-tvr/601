@@ -15,13 +15,23 @@
 		private var limite_izq: int=40;
 		private var cambia:Timer = new Timer(200,0);
 		private var tipo:Number;
+		private var lanzar:Timer = new Timer(1200,0);
 		
 		public function ANTAGONISTA()   {
 			// constructor code
 			addEventListener(Event.ENTER_FRAME, actualiza);
 			cambia.addEventListener(TimerEvent.TIMER, cambia_dir);
 			cambia.start();
+			lanzar.addEventListener(TimerEvent.TIMER, lanzar_bala);
+			lanzar.start();
 		}
+		
+		public  function lanzar_bala(e:TimerEvent){
+			//trace("Lanza Bala");
+			var bala_nueva = new BALA(x,y);
+			stage.addChild(bala_nueva);
+		}
+		
 		
 		public function cambia_dir(e:TimerEvent){
 			tipo=Math.floor(Math.random() * 8);
@@ -36,6 +46,7 @@
 					break;
 			}
 		}
+		
 		
 		public function actualiza(e:Event){
 			x+= vel * dir;
