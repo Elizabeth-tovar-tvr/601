@@ -22,6 +22,19 @@
 				stage.removeChild(this);
 				this.removeEventListener(Event.ENTER_FRAME, mover);
 				}
+				
+				if(this.hitTestObject(Setup.PROTAGONISTA_NEW)){
+					vel=0;
+					stage.removeChild(this);
+					this.removeEventListener(Event.ENTER_FRAME,mover);
+					
+					Setup.PUNTOS+=1;
+					
+					//trace(Setup.PUNTOS);
+				   
+				   
+				}
+			
 			
 			}
 
