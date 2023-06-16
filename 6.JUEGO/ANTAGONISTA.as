@@ -6,6 +6,8 @@
 	import flash.events.KeyboardEvent;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 	
 	public class ANTAGONISTA extends MovieClip {
 		
@@ -15,7 +17,10 @@
 		private var limite_izq: int=40;
 		private var cambia:Timer = new Timer(200,0);
 		private var tipo:Number;
-		private var lanzar:Timer = new Timer(1200,0);
+		private var lanzar:Timer = new Timer(3000,0);
+		private var contador:int = 0;
+		private var textField: TextField;
+		
 		
 		public function ANTAGONISTA()   {
 			// constructor code
@@ -24,12 +29,21 @@
 			cambia.start();
 			lanzar.addEventListener(TimerEvent.TIMER, lanzar_bala);
 			lanzar.start();
+			
+			
+			
 		}
 		
 		public  function lanzar_bala(e:TimerEvent){
 			//trace("Lanza Bala");
 			var bala_nueva = new BALA(x,y);
 			stage.addChild(bala_nueva);
+			contador++;
+			if (contador % 5 == 0) {
+				vel += 3;
+				//textField.text = "Velocidad: " + vel;
+			}
+			
 		}
 		
 		
@@ -58,6 +72,8 @@
 			}
 			
 		}
+		
+		
 		
 		
 	}
